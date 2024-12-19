@@ -152,7 +152,7 @@ export default {
     };
 
     const lastTenTransactions = computed(() => {
-      return store.transactions.slice(-13).reverse();
+      return store.transactions.slice(-10).reverse();
     });
 
     return {
