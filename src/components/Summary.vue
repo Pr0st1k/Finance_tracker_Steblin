@@ -13,7 +13,7 @@
     <div class="down-side h-full min-h-[300px]">
       <div class="statistic h-full flex flex-row justify-center">
         <div class="flex flex-row mt-10 2xl:mt-15 justify-between max-w-[90%] max-h-[200px] h-full w-full">
-          <div class="stat-container flex flex-col max-w-[295px] text-wrap text-center">
+          <div class="stat-container flex flex-col max-w-[400px] text-wrap text-center">
             <span class="2xl:text-[36px] xl:text-[32px] text-[28px] font-medium tracking-[0.01em]">Самый<br>прибыльный год</span>
             <div class="stat-data mt-8 2xl:text-[64px] xl:text-[58px] lg:text-5xl text-4xl font-normal">{{ getMostProfitableYear() }}</div>
           </div>
