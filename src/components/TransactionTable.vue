@@ -394,12 +394,6 @@ select.category-filter {
   }
 }
 
-@media (max-width: 1280px ) {
-  .table-container {
-    height: fit-content;
-  }
-}
-
 .filter-icon {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
 }
