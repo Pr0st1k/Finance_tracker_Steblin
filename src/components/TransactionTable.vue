@@ -1,5 +1,5 @@
 <template>
-  <div class="table-container h-full max-xl:h-fit lg:p-[30px] p-[10px] flex flex-col justify-between">
+  <div class="table-container h-full lg:p-[30px] p-[10px] flex flex-col justify-between">
     <!-- Кнопка для открытия сайдбара с фильтрами -->
     <div v-if="!showSidebar" class="filter-toggle-button" @click="toggleSidebar()">
       <img src="../assets/images/mobile_only/filter.svg" alt="Фильтры" width="29px" class="filter-icon">
@@ -391,6 +391,12 @@ select.category-filter {
 @media (max-width: 1440px) {
   .filter-container.main-filter {
     display: none;
+  }
+}
+
+@media (max-width: 1280px ) {
+  .table-container {
+    height: fit-content;
   }
 }
 
