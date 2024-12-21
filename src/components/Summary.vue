@@ -1,6 +1,6 @@
 <template>
   <div class="stat-block flex w-full flex-col h-full p-[10px] max-md:p-0">
-    <div class="up-side flex h-full w-full mb-5">
+    <div class="up-side flex h-full max-sm:h-auto w-full mb-5">
       <div class="statistic stat_1 md:flex inline-grid flex-col md:px-[30px] py-5">
         <h3 class="text-[32px] font-medium">Статистика доходов по месяцам</h3>
           <LineChart :data="lineChartData" />
@@ -34,11 +34,11 @@
           <div class="slide flex flex-col items-center">
             <div class="slide-head">
               <div class="slide-title text-center text-[28px] font-medium">
-                Самый прибыльный год
+                Самый прибыльный<br>год
               </div>
               <div class="slide-info text-[64px] justify-center flex flex-row items-center">
                 <div class="me-5"><img src="../assets/images/mobile_only/Business.svg" width="64px" height="64px" alt="coin_img"></div>
-                <div>{{ getMostProfitableYear() }}</div>
+                <div class="text-center">{{ getMostProfitableYear() }}</div>
                 <div class="ms-5"><img src="../assets/images/mobile_only/Business.svg" width="64px" height="64px" alt="coin_img" style="transform: scaleX(-1);"></div>
               </div>
             </div>
@@ -49,11 +49,11 @@
           <div class="slide flex flex-col items-center">
             <div class="slide-head">
               <div class="slide-title text-center text-[28px] font-medium">
-                Самый большой приход
+                Самый большой<br>приход
               </div>
               <div class="slide-info text-[64px] justify-center flex flex-row items-center">
                 <div class="me-5"><img src="../assets/images/mobile_only/money.svg" width="64px" height="64px" alt="coin_img"></div>
-                <div>{{ formatNumber(maxIncome) }}</div>
+                <div class="text-center">{{ formatNumber(maxIncome) }}</div>
                 <div class="ms-5"><img src="../assets/images/mobile_only/money.svg" width="64px" height="64px" alt="coin_img" style="transform: scaleX(-1);"></div>
               </div>
             </div>
@@ -64,11 +64,11 @@
           <div class="slide flex flex-col items-center">
             <div class="slide-head">
               <div class="slide-title text-center text-[28px] font-medium">
-                Количество всех транзакций
+                Количество всех<br>транзакций
               </div>
               <div class="slide-info text-[64px] justify-center flex flex-row items-center">
                 <div class="me-5"><img src="../assets/images/mobile_only/calculator.svg" width="64px" height="64px" alt="coin_img"></div>
-                <div>{{ getCountTransactions() }}</div>
+                <div class="text-center">{{ getCountTransactions() }}</div>
                 <div class="ms-5"><img src="../assets/images/mobile_only/calculator.svg" width="64px" height="64px" alt="coin_img" style="transform: scaleX(-1);"></div>
               </div>
             </div>
@@ -164,7 +164,7 @@ export default {
       const transactions = store.transactions;
 
       if (!transactions || transactions.length === 0) {
-        return 'Нет данных';
+        return '-';
       }
 
       const yearStats = {};
@@ -194,14 +194,14 @@ export default {
         }
       }
 
-      return mostProfitableYear ? `${mostProfitableYear}` : 'Нет данных';
+      return mostProfitableYear ? `${mostProfitableYear}` : '-';
     };
 
     const getHighestIncomeMonth = () => {
       const transactions = store.transactions;
 
       if (!transactions || transactions.length === 0) {
-        return 'Нет данных';
+        return '-';
       }
 
       const months = [
@@ -228,7 +228,7 @@ export default {
         }
       });
 
-      return highestIncomeMonth ? `${highestIncomeMonth}` : 'Нет данных';
+      return highestIncomeMonth ? `${highestIncomeMonth}` : '-';
     };
 
     const getCountTransactions = () => {
@@ -275,7 +275,7 @@ export default {
   border-radius: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .up-side {
     flex-direction: column;
     margin-top: 20px;
@@ -320,8 +320,6 @@ export default {
   .slider {
     position: relative;
     width: 100%;
-    max-width: 600px;
-    margin: auto;
     overflow: hidden;
     border: 1px solid black;
     border-radius: 20px;
@@ -329,7 +327,7 @@ export default {
 
   .slides {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.7s cubic-bezier(0.65, 0.05, 0.36, 1);
   }
 
   .slide {
@@ -358,6 +356,8 @@ export default {
 
   .slide-info {
     font-family: 'Prata', sans-serif;
+    margin-bottom: 20px;
+    margin-top: 10px;
   }
 
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="table-container min-[1670px]:h-full h-fit lg:p-[30px] p-[10px] flex flex-col justify-between">
+  <div class="table-container h-full xl:h-fit lg:p-[30px] p-[10px] flex flex-col justify-between">
     <!-- Кнопка для открытия сайдбара с фильтрами -->
     <div v-if="!showSidebar" class="filter-toggle-button" @click="toggleSidebar()">
       <img src="../assets/images/mobile_only/filter.svg" alt="Фильтры" width="29px" class="filter-icon">
@@ -7,8 +7,8 @@
 
     <!-- Основной контент -->
     <div>
-      <div class="flex flex-row justify-between mb-10">
-        <span class="text-[32px] font-semibold hidden md:block">Список транзакций</span>
+      <div class="flex-row justify-between md:flex hidden xl:mb-5">
+        <span class="text-[32px] font-semibold">Список транзакций</span>
         <div class="xl:flex flex-row items-center hidden">
           <input
             v-model="filterTransactionId"
@@ -49,7 +49,8 @@
     </div>
 
     <!-- Кнопка "Загрузить еще" -->
-    <div v-if="isMobileView && !isFullListLoaded" class="load-more-container max-lg:flex min-[1024px]:hidden justify-center items-center h-full">
+    <div v-if="isMobileView && !isFullListLoaded" class="load-more-container max-lg:flex min-[1024px]:hidden justify-center items-center flex-col max-md:mb-5">
+      <div class="mb-4 text-[12px]">Нажмите "Загрузить еще", чтобы отобразить полный список транзакций</div>
       <button @click="loadMore" class="load-more-button text-white py-2 px-7 rounded text-2xl">Загрузить еще</button>
     </div>
 
@@ -329,17 +330,14 @@ select.category-filter {
   border-radius: 20px;
 }
 
-/* Медиа-запрос для скрытия столбца "Описание" на экранах меньше 768px */
 @media (max-width: 768px) {
   .description-column {
     display: none;
   }
 }
 
-/* Стили для кнопки "Загрузить еще" */
 .load-more-container {
   text-align: center;
-  margin-top: 20px;
 }
 
 .load-more-button {
